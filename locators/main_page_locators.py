@@ -17,3 +17,4 @@ class MainPageLocators:
     PASSWORD_INPUT = (By.NAME, "Пароль")
     LOGIN_BUTTON = (By.XPATH, "//button[text()='Войти']")   
     ORDER_BUTTON = (By.XPATH, "//button[text()='Оформить заказ']")
+    LOADING_MODAL = (By.CSS_SELECTOR, "div.Modal_modal__P3_V5")

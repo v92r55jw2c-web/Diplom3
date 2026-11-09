@@ -1,5 +1,7 @@
 import pytest
 from selenium import webdriver
+from helpers import generate_user_data, register_user, delete_user
+
 
 @pytest.fixture(params=["chrome", "firefox"])
 def driver(request):
@@ -14,3 +16,15 @@ def driver(request):
     yield driver
 
     driver.quit()
+
+
+@pytest.fixture
+def user():
+
+    user_data = generate_user_data()
+    response = register_user(user_data)
+    token = response.json()["accessToken"]
+
+    yield user_data, token
+
+    delete_user(token)
